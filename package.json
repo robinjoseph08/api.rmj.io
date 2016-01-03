@@ -7,6 +7,9 @@
     "lint": "eslint .",
     "migrate": "knex migrate:latest --knexfile db/index.js",
     "migrate:make": "knex migrate:make --knexfile db/index.js",
+    "rollback": "knex migrate:rollback --knexfile db/index.js",
+    "seed": "knex seed:run --knexfile db/index.js",
+    "seed:make": "knex seed:make --knexfile db/index.js",
     "start": "nodemon --ignore test/"
   },
   "repository": {
@@ -27,6 +30,7 @@
   "dependencies": {
     "bookshelf": "^0.9.1",
     "hapi": "^11.1.4",
+    "hapi-bookshelf-serializer": "^2.1.0",
     "joi": "^7.1.0",
     "knex": "^0.9.0",
     "pg": "^4.4.3"

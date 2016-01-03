@@ -11,13 +11,23 @@ let server = new Hapi.Server({
       stripTrailingSlash: true
     },
     routes: {
-      json: { space: 4 },
+      json: { space: 2 },
       cors: { credentials: true }
     }
   }
 });
 
 server.connection({ port: Config.PORT });
+
+server.register([
+  require('hapi-bookshelf-serializer'),
+  require('./plugins/features/regex')
+], (err) => {
+  /* istanbul ignore if */
+  if (err) {
+    throw err;
+  }
+})
 
 /* istanbul ignore next */
 process.on('SIGTERM', function () {
