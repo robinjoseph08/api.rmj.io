@@ -13,3 +13,11 @@ $ npm i
 ```
 
 If you have [avn](https://github.com/wbyoung/avn) setup, the `.node-version` file should automatically switch the version for you.
+
+### Database
+
+```
+$ psql postgres
+postgres=# CREATE ROLE "rmj_user" CREATEDB CREATEUSER LOGIN;
+$ createdb -O rmj_user rmj
+```

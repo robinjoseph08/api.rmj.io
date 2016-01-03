@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "description": "The API for rmj.io",
   "main": "app/index.js",
-  "script": {
+  "scripts": {
     "lint": "eslint .",
-    "start": "nodemode --ignore test/"
+    "migrate": "knex migrate:latest --knexfile db/index.js",
+    "migrate:make": "knex migrate:make --knexfile db/index.js",
+    "start": "nodemon --ignore test/"
   },
   "repository": {
     "type": "git",
@@ -19,10 +21,14 @@
   "homepage": "https://github.com/robinjoseph08/api.rmj.io#readme",
   "devDependencies": {
     "eslint": "^1.10.3",
-    "eslint-config-lob": "^1.0.1"
+    "eslint-config-lob": "^1.0.1",
+    "nodemon": "^1.8.1"
   },
   "dependencies": {
+    "bookshelf": "^0.9.1",
     "hapi": "^11.1.4",
-    "joi": "^7.1.0"
+    "joi": "^7.1.0",
+    "knex": "^0.9.0",
+    "pg": "^4.4.3"
   }
 }
