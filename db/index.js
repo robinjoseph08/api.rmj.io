@@ -1,6 +1,6 @@
 'use strict';
 
-let Config = require('../config');
+const Config = require('../config');
 
 module.exports = {
   client: 'postgresql',

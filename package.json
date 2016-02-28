@@ -12,8 +12,8 @@
     "seed": "knex seed:run --knexfile db/index.js",
     "seed:make": "knex seed:make --knexfile db/index.js",
     "start": "nodemon --ignore test/",
-    "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
-    "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+    "test": "NODE_ENV=test istanbul cover _mocha -- test --require test/setup.test.js --recursive --timeout 30000",
+    "test-no-cover": "NODE_ENV=test mocha test --require test/setup.test.js --recursive --timeout 30000"
   },
   "repository": {
     "type": "git",
@@ -29,11 +29,12 @@
     "chai": "^3.4.1",
     "coveralls": "^2.11.6",
     "eslint": "^1.10.3",
-    "eslint-config-lob": "^1.0.1",
+    "eslint-config-lob": "^2.0.0",
     "inject-then": "^2.0.3",
     "istanbul": "^0.4.1",
     "mocha": "^2.3.4",
-    "nodemon": "^1.8.1"
+    "nodemon": "^1.8.1",
+    "rosie": "^1.3.0"
   },
   "dependencies": {
     "bookshelf": "^0.9.1",

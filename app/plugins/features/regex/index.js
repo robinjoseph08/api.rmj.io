@@ -1,6 +1,6 @@
 'use strict';
 
-let Controller = require('./controller');
+const Controller = require('./controller');
 
 exports.register = (server, options, next) => {
 
@@ -8,9 +8,7 @@ exports.register = (server, options, next) => {
     method: 'GET',
     path: '/regex',
     config: {
-      handler: (request, reply) => {
-        reply(Controller.list());
-      }
+      handler: (request, reply) => reply(Controller.list())
     }
   }]);
 

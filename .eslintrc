@@ -1,6 +1,10 @@
 {
-  "extends": "eslint-config-lob",
-  "env": {
-    "es6": true
+  "extends": "lob",
+  "globals": {
+    "expect": false,
+    "Factory": false
+  },
+  "rules": {
+    "arrow-body-style": 0
   }
 }

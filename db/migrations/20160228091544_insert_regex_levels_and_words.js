@@ -1,10 +1,7 @@
 'use strict';
 
-exports.seed = function (knex, Promise) {
-  return Promise.all([
-    knex('regex_words').del(),
-    knex('regex_levels').del()
-  ])
+exports.up = function (knex, Promise) {
+  return Promise.resolve()
   .then(() => {
     let count = 1;
     return Promise.all([
@@ -70,4 +67,9 @@ exports.seed = function (knex, Promise) {
       knex('regex_words').insert({ id: count++, value: '12 (800) 180 1963', side: 'right', regex_level_id: 4 })
     ]);
   });
+};
+
+exports.down = function (knex, Promise) {
+  return knex('regex_words').where('id', '<=', 48).del()
+  .then(() => knex('regex_levels').where('id', '<=', 4));
 };

@@ -1,20 +1,16 @@
 'use strict';
 
-let Bookshelf = require('../../libraries/bookshelf');
-let RegexWord = require('./word');
+const Bookshelf = require('../../libraries/bookshelf');
+const RegexWord = require('./word');
 
 module.exports = Bookshelf.Model.extend({
   tableName: 'regex_levels',
   hasTimestamps: ['date_created', 'date_modified'],
   left_words () {
-    return this.hasMany(RegexWord).query((qb) => {
-      qb.where('side', 'left');
-    });
+    return this.hasMany(RegexWord).query((qb) => qb.where('side', 'left'));
   },
   right_words () {
-    return this.hasMany(RegexWord).query((qb) => {
-      qb.where('side', 'right');
-    });
+    return this.hasMany(RegexWord).query((qb) => qb.where('side', 'right'));
   },
   serialize () {
     return {

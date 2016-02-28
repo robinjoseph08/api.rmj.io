@@ -1,7 +1,7 @@
 'use strict';
 
-let Knex = require('knex');
+const Knex = require('knex');
 
-let DatabaseConfig = require('../../db');
+const DatabaseConfig = require('../../db');
 
 module.exports = Knex(DatabaseConfig);

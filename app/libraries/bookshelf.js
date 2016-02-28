@@ -1,7 +1,7 @@
 'use strict';
 
-let Bookshelf = require('bookshelf');
+const Bookshelf = require('bookshelf');
 
-let Knex = require('./knex');
+const Knex = require('./knex');
 
 module.exports = Bookshelf(Knex);

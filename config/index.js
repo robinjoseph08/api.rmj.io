@@ -1,6 +1,6 @@
 'use strict';
 
-let config = {
+const config = {
   development: require('./development'),
   production: require('./production'),
   staging: require('./staging'),

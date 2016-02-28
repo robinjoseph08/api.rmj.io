@@ -1,6 +1,6 @@
 'use strict';
 
-let Bookshelf = require('../../libraries/bookshelf');
+const Bookshelf = require('../../libraries/bookshelf');
 
 module.exports = Bookshelf.Model.extend({
   tableName: 'regex_words',

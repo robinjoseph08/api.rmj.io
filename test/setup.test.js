@@ -1,11 +1,17 @@
 'use strict';
 
-var Server = require('../app/server');
+const Chai  = require('chai');
+const Rosie = require('rosie');
 
-Server.register([
+const API = require('../app/server');
+
+API.register([
   require('inject-then')
 ], (err) => {
   if (err) {
     throw err;
   }
 });
+
+global.expect = Chai.expect;
+global.Factory = Rosie.Factory;
