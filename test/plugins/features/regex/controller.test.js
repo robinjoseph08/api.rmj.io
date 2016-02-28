@@ -1,13 +1,11 @@
 'use strict';
 
-let expect = require('chai').expect;
+const Controller = require('../../../../app/plugins/features/regex/controller');
+const Knex       = require('../../../../app/libraries/knex');
 
-let Controller = require('../../../../app/plugins/features/regex/controller');
-let Knex       = require('../../../../app/libraries/knex');
-
-let defaultLevel = require('../../../fixtures/regex/levels/default');
-let leftWord     = require('../../../fixtures/regex/words/left');
-let rightWord    = require('../../../fixtures/regex/words/right');
+const defaultLevel = Factory.build('regex-level');
+const leftWord     = Factory.build('regex-word-left', { regex_level_id: defaultLevel.id });
+const rightWord    = Factory.build('regex-word-right', { regex_level_id: defaultLevel.id });
 
 describe('regex controller', () => {
 
@@ -16,12 +14,8 @@ describe('regex controller', () => {
       Knex.raw('TRUNCATE regex_levels CASCADE'),
       Knex.raw('TRUNCATE regex_words CASCADE')
     ])
-    .then(() => {
-      return Knex('regex_levels').insert(defaultLevel);
-    })
-    .then(() => {
-      return Knex('regex_words').insert([leftWord, rightWord]);
-    });
+    .then(() => Knex('regex_levels').insert(defaultLevel))
+    .then(() => Knex('regex_words').insert([leftWord, rightWord]));
   });
 
   describe('list', () => {

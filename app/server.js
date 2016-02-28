@@ -1,11 +1,11 @@
 'use strict';
 
-let Hapi = require('hapi');
-let Util = require('util');
+const Hapi = require('hapi');
+const Util = require('util');
 
-let Config = require('../config');
+const Config = require('../config');
 
-let server = new Hapi.Server({
+const server = new Hapi.Server({
   connections: {
     router: {
       stripTrailingSlash: true
@@ -30,9 +30,9 @@ server.register([
 })
 
 /* istanbul ignore next */
-process.on('SIGTERM', function () {
-  Util.log('Draining server for ' + Config.DRAIN_TIMEOUT + 'ms...');
-  server.stop({ timeout: Config.DRAIN_TIMEOUT }, function () {
+process.on('SIGTERM', () => {
+  Util.log(`Draining server for ${Config.DRAIN_TIMEOUT}ms...`);
+  server.stop({ timeout: Config.DRAIN_TIMEOUT }, () => {
     Util.log('Server stopped');
     process.exit(0);
   });

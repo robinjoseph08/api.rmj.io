@@ -1,26 +1,20 @@
 'use strict';
 
-let expect = require('chai').expect;
+const RegexWord = require('../../../app/models/regex/word');
 
-let RegexWord = require('../../../app/models/regex/word');
+const defaultWord = Factory.build('regex-word-left');
 
 describe('regex word model', () => {
-
-  let word;
-
-  beforeEach(() => {
-    word = RegexWord.forge({ id: 1, value: 'testing', side: 'left' });
-  });
 
   describe('serialize', () => {
 
     it('returns the correct properties', () => {
-      let json = word.serialize();
+      const json = RegexWord.forge(defaultWord).serialize();
 
       expect(json).to.have.all.keys('id', 'value', 'side');
-      expect(json.id).to.eql(word.get('id'));
-      expect(json.value).to.eql(word.get('value'));
-      expect(json.side).to.eql(word.get('side'));
+      expect(json.id).to.eql(defaultWord.id);
+      expect(json.value).to.eql(defaultWord.value);
+      expect(json.side).to.eql(defaultWord.side);
     });
 
   });

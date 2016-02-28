@@ -1,10 +1,8 @@
 'use strict';
 
-let Util = require('util');
+const Util = require('util');
 
-let Config = require('../config');
-let Auth   = require('./server');
+const Config = require('../config');
+const API    = require('./server');
 
-Auth.start(function () {
-  Util.log('Server started on port:' + Config.PORT);
-});
+API.start(() => Util.log(`Server started on port: ${Config.PORT}`));
